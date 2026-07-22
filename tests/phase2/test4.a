@@ -1,0 +1,15 @@
+function (a, b, c){
+    return;
+}
+
+gDeviceAllocator = 345.5;
+
+function (){
+    /* Here can exist, globals, declared locals of the same block and the function parameters */
+    local p = ::gDeviceAllocator;   
+}
+
+print(gDeviceAllocator);
+
+// print() = 1; /* Illegal */
+print = 1; /* Illegal */

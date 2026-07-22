@@ -1,0 +1,5 @@
+function (param1, param2){
+    local s = 5;
+
+    return param1;
+}

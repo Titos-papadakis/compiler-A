@@ -1,0 +1,32 @@
+for(local x = 0;
+x < 5;
+x++){
+    print(x);
+
+    if(x < 1){
+        x++;
+    }
+
+    break;
+    continue;
+}
+
+break;
+continue;
+
+y = 1.5;
+
+while(y < 1){
+    continue;
+    break;
+
+    Yelloow(arma1, god, big_man);
+
+    while(1){
+        break;
+        while(1){
+            break;
+        }
+    }
+}
+

@@ -1,0 +1,37 @@
+function f(){
+
+}
+
+function f(){
+    /* Illegal, already declared */
+}
+
+f = 54; /* Illegal, r value */
+
+local foo = 1;
+// foo = 5;
+
+/* Illegal */
+function foo(){
+    local foo = 1; /* New scope -> legal! */
+}
+
+function wow(msg){
+
+}
+
+wow(1);
+
+wow = 1; /* rval */
+
+function bad_msg(){
+
+}
+
+local bad_msg = 1;
+
+function alpha_create_space(x, y, h){
+    local sum = x + y + h;
+
+    gSpaceAllocProxy = sum; // Move them up
+}

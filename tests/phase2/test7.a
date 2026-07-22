@@ -1,0 +1,12 @@
+function (){
+    local v1 = 1;
+
+    function (){
+        local v2 = 2;
+
+        function (){
+            local v3 = 3;
+
+        }
+    }
+}

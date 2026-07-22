@@ -1,0 +1,14 @@
+function f(){
+    function f(){
+        // illegal
+        // i can't have 2 funtions with the same name, even though I am at a different scope
+    }
+}
+
+function x(){
+    local x = 3;
+
+    function p(){
+        x = 1;
+    }
+}

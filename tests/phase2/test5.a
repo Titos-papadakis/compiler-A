@@ -1,0 +1,46 @@
+gDeviceAllocator = "local_alloc";
+
+function (a, b, c){
+    return b;
+}
+
+function (p21, p22, p33){
+    return a; /* illegal fix, param bad */
+}
+
+function (a, b, c){
+    return 1 + 45 / 6;
+}
+
+function sleeping_device(){
+   return gDeviceAllocator; /* illegal */
+}
+
+function param(elevator){
+    return elevator; /* Legal */
+}
+
+function product_f(){
+    return ::gDeviceAllocator; /* legal */
+}
+
+function otherFunc(p1){
+    local var1 = 1;
+
+    return var1;
+}
+
+function forget_past_alloc(allocateFlag){
+    local msg = "Oh I forgot...\n";
+
+    /* Inner function declaration break everything */
+    // function inner_forget(booleanFlag, others){
+    //     local otherFlag = others.flag1;
+    //     return msg;             /* Illegal, wrong scope/block */
+    //     return allocateFlag;    /* Illegal, wrong scope/block */
+    //     return booleanFlag;     /* legal */
+    //     return otherFlag;       /* legal */
+    // }
+
+    return msg; /* legal */
+}

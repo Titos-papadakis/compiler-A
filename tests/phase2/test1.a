@@ -1,0 +1,26 @@
+gSDL2WinDesc = "Hello, Windows!\n";
+
+{
+    local gScene = 5;
+
+    ::gSDL2WinDesc = "Wow!"; /* Bad */
+    // gSDL2WinDesc = gScene.desc;
+
+    ::gScene = 1; /* Bad */
+
+    local gPeaky = 2;
+    {
+        {
+            {
+                gPeaky = 1; // Assignment, refers to the previous local, same scope
+                local gPeaky = "Hello"; // redeclaration, same scope
+                gLocal = 1; // new local!
+            }
+        }
+    }
+
+    function f(){
+        gPeaky = 1;
+        return ::gSDL2WinDesc;
+    }
+}
