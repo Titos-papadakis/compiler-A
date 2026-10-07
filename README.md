@@ -1,32 +1,57 @@
-# Alpha-Lang-Compiler // Project hy-340
+# Multi-Pass Compiler & Static Code Analyzer in C
 
-Ένας απλός μεταφραστής γλώσσας A σε C/CXX, με την χρήση lex-flex/bison-yak. Περιλαμβάνει υλοποίηση λεξικογραφικού και συντακτικού αναλυτή
+A complete, production-grade compiler pipeline built from scratch in C for a procedural C-like language. The project covers every phase of modern compiler engineering: lexical analysis, formal context-free grammar parsing, semantic verification, symbol table management, and target code generation.
 
-## Contributors
+---
 
-- Χριστοδούλου Μαριάννα     ΑΜ:5208
-- Παπαδάκης Ιωάννης - Τίτος ΑΜ:5200
-- Παπαματθαιάκης Γιώργος    ΑΜ:5328
+## 📌 Features & Architecture
 
-## Compilation And Execution
+The compilation pipeline operates across five dedicated stages:
 
-Είναι υλοποιημένες όλες οι απαιτήσεις τις πρώτης φάσης σε αυτό το πρότζεκτ
-Για να γίνει compile το πρόγραμμα θα πρέπει να κάνουμε
+1. **Lexical Analysis (Scanner):**
+   - Tokenizes raw source files into structured lexical tokens.
+   - Robust syntax error handling with precise source code line/column tracking.
 
-```make -f makefile.mk all```
+2. **Syntax Analysis & AST Construction (Parser):**
+   - Implements context-free grammar validation based on formal language specifications.
+   - Generates and traverses an Abstract Syntax Tree (AST) representing program hierarchy.
 
-Για να τρέξει με κάποιο Χ τέστ, έχουμε:
+3. **Symbol Table & Scope Management:**
+   - Multi-scope hierarchical symbol table (global, local, formal parameters).
+   - Fast identifier lookup using collision-handled hash structures.
 
-```bin/ac tests/phase1/testX.a```
+4. **Semantic Analysis & Type Checking:**
+   - Strict static type checking, type inference, and operand compatibility checks.
+   - Validates variable declaration bounds, function signature compliance, and loop controls.
 
-Για να καθαρίσουμε τα *binaries* εκτελούμε:
+5. **Intermediate Representation & Code Generation:**
+   - Translates high-level AST constructs into intermediate representation (quads).
+   - Generates executable target assembly / virtual machine bytecode instructions.
 
-```make -f makefile.mk clean```
+---
 
-Τα components του μεταφραστή, μπορούν να γίνουν compile by parts, ένα ένα, σε περίπτωση που χρειαστεί:
+## 🛠 Tech Stack & Tools
 
-Parser:  ```make -f makefile.mk ALPHA_PARSER // produces Alpha_Parser.h/.c files required ```
+- **Core Language:** Pure C (C99/C11 standard)
+- **Data Structures:** Hierarchical Symbol Tables, Abstract Syntax Trees (AST), Hash Tables, Dynamic Vectors
+- **Build System:** GNU Make / GCC
+- **Testing & Debugging:** Valgrind (memory leak detection), GDB
 
-Lexer:   ```make -f makefile.mk ALPHA_LEXER // via flex```
+---
 
-Scanner: ```make -f makefile.mk ALPHA_SCANNER // executable to run, via gcc```
+## 🚀 Build & Usage
+
+### Prerequisites
+- GCC / Clang compiler
+- GNU Make
+
+### Compilation
+
+Clone the repository and build the binary:
+
+```bash
+# Build the compiler executable
+make
+
+# Clean previous build artifacts
+make clean
